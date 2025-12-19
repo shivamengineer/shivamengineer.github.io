@@ -110,7 +110,7 @@ function keyboard(e){
             break;
         case 46:
             if(lastSelected != -999){
-                bst.remove(lastSelected);
+                //bst.remove(lastSelected);
             }
             lastSelected = -999;
             break;
