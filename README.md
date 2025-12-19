@@ -1,5 +1,1 @@
-This is the README
-<!DOCTYPE html>
-<html>
-<h1>Test</h1>
-</html>
+[Check out my Binary Search Tree visualization tool!](BinarySearchTree/bst.html)
