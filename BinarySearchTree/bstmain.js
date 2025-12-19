@@ -4,13 +4,12 @@ const ctx = canvas.getContext('2d');
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
-var inputNum = 0;
+/*var inputNum = 0;
 var initialWidth = 50;
 var inputBox = {height: 60, width: initialWidth, x: 20, y: 20, color: "white", text: 0};
 var input = false;
-var changeSize = false;
+var changeSize = false;*/
 
-var n = new Node(2, 0);
 var bst = new BinarySearchTree();
 
 var mousedown = false;
@@ -18,6 +17,9 @@ var canRotate = false;
 var lastSelected = -999;
 var lastX;
 var lastY;
+var startScrollY = -90;
+var scrollX = 0;
+var scrollY = 0;
 
 function clearscreen(){
     ctx.fillStyle = "black";
@@ -37,7 +39,15 @@ function drawRect(rect){
 function draw(){
     clearscreen();
     bst.draw();
-    drawRect(inputBox);
+}
+
+function addNodeFromNumber(){
+    const numberInput = document.getElementById("BSTNumber").value;
+    var num = parseInt(numberInput);
+    if(num != NaN && num >= 0){
+        bst.insert(num);
+    }
+    document.getElementById("BSTNumber").value = "";
 }
 
 function mouseCollides(x, y, rect){
@@ -49,13 +59,9 @@ function mouseCollides(x, y, rect){
 
 function mouseDown(e){
     var x = e.clientX;
-    var y = e.clientY;
+    var y = e.clientY + startScrollY + scrollY;
     lastX = x;
     lastY = y;
-    input = false;
-    if(mouseCollides(x, y, inputBox)){
-        input = true;
-    }
 
     if(bst.height > 0){ canRotate = bst.collidesWithNode(x, y); }
     mousedown = true;
@@ -65,14 +71,14 @@ function mouseDown(e){
 function mouseMove(e){
     if(mousedown){
         var x = e.clientX;
-        var y = e.clientY;
+        var y = e.clientY + startScrollY + scrollY;
         bst.moveNodeX(x, y);
     }
 }
 
 function mouseUp(e){
     var x = e.clientX;
-    var y = e.clientY;
+    var y = e.clientY + startScrollY + scrollY;
     var startX = x;
     var startY = y;
     bst.resetSelectedNode();
@@ -88,25 +94,9 @@ function mouseUp(e){
 }
 
 function keyboard(e){
-    if(e.keyCode >= 48 && e.keyCode <= 57){
-        inputBox.text *= 10;
-        inputBox.text += e.keyCode - 48;
-        if(changeSize && inputBox.text != 0){
-            inputBox.width += 30;
-        } else {
-            changeSize = true;
-        }
-    }
     switch(e.keyCode){
         case 13:
-            bst.insert(inputBox.text);
-            inputBox.text = 0;
-            inputBox.width = initialWidth;
-            changeSize = false;
-            break;
-        case 8:
-            if(inputBox.text >= 10){ inputBox.width -= 30; }
-            inputBox.text = Math.floor(inputBox.text / 10);
+            this.addNodeFromNumber();
             break;
         case 46:
             if(lastSelected != -999){
@@ -117,6 +107,13 @@ function keyboard(e){
     }
 }
 
+function scroll(e){
+    const currentScrollX = document.documentElement.scrollLeft;
+    const currentScrollY = document.documentElement.scrollTop;
+    scrollY = currentScrollY;
+}
+
+window.addEventListener("scroll", scroll, true);
 window.addEventListener("mousedown", mouseDown, true);
 window.addEventListener("mousemove", mouseMove, true);
 window.addEventListener("mouseup", mouseUp, true);
