@@ -117,5 +117,8 @@ window.addEventListener("scroll", scroll, true);
 window.addEventListener("mousedown", mouseDown, true);
 window.addEventListener("mousemove", mouseMove, true);
 window.addEventListener("mouseup", mouseUp, true);
+window.addEventListener("touchstart", mouseDown, true);
+window.addEventListener("touchmove", mouseMove, true);
+window.addEventListener("touchend", mouseUp, true);
 window.addEventListener("keydown", keyboard, true);
 setInterval(draw, 16);
