@@ -50,6 +50,26 @@ function addNodeFromNumber(){
     document.getElementById("BSTNumber").value = "";
 }
 
+function rotateNodeWithValue(){
+    const rotateInput = document.getElementById("RotateNode").value;
+    const direction = document.getElementById("RotateDirection").checked;
+    if(direction){
+        bst.rotateRight(rotateInput);
+    } else {
+        bst.rotateLeft(rotateInput);
+    }
+    document.getElementById("RotateNode").value = "";
+}
+
+function switchDir(){
+    const dir = document.getElementById("RotateDirection").checked;
+    if(dir){
+        document.getElementById("rotateDir").innerText = "Rotate Right";
+    } else {
+        document.getElementById("rotateDir").innerText = "Rotate Left";
+    }
+}
+
 function mouseCollides(x, y, rect){
     return (x >= rect.x &&
         x <= rect.x + rect.width &&
@@ -96,7 +116,13 @@ function mouseUp(e){
 function keyboard(e){
     switch(e.keyCode){
         case 13:
-            this.addNodeFromNumber();
+            const insertInput = document.getElementById("BSTNumber");
+            const rotateInput = document.getElementById("RotateNode");
+            if(document.activeElement === insertInput){
+                this.addNodeFromNumber();
+            } else if(document.activeElement === rotateInput){
+                this.rotateNodeWithValue();
+            }
             break;
         case 46:
             if(lastSelected != -999){
