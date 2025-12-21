@@ -57,46 +57,50 @@ class BinarySearchTree {
         }
     }
 
-    remove(value){
-        this.root = this.removeNode(this.root, value);
+    getSuccessor(node){
+        node = node.right;
+        while(node != null && node.left != null){
+            node = node.left;
+        }
+        return node;
     }
 
-    removeNode(node, value){
-        if(node == null){
+    getPredecessor(node){
+        node = node.left;
+        while(node != null && node.right != null){
+            node = node.right;
+        }
+        return node;
+    }
+
+    removeNode(root, x){
+        if(root == null) {
             return null;
-        } else if(value < node.value){
-            this.removeNode(node.left, value);
-            node.position--;
-            this.decreasePositionForSubtree(node.right);
-            this.updateTreeHeight();
-            return node;
-        } else if(value > node.value){
-            this.removeNode(node.right, value);
-            this.updateTreeHeight();
-            return node;
+        }
+
+        if(x < root.value) {
+            root.left = this.removeNode(root.left, x);
+        } else if(root.value < x){
+            root.right = this.removeNode(root.right, x);
         } else {
-            if(node.left == null && node.right == null){
-                node = null;
-                this.updateTreeHeight();
+            if(root.left == null && root.right == null){
+                if(root == this.root){
+                    this.root = null;
+                }
                 return null;
             }
-            if(node.left == null){
-                node = node.right;
-                this.updateTreeHeight();
-                return node;
-            } else if(node.right == null){
-                node = node.left;
-                this.updateTreeHeight();
-                return node;
+
+            if(root.left != null){
+                var predecessor = this.getPredecessor(root);
+                root.value = predecessor.value;
+                root.left = this.removeNode(root.left, predecessor.value);
+            } else if(root.right != null){
+                var successor = this.getSuccessor(root);
+                root.value = successor.value;
+                root.right = this.removeNode(root.right, successor.value);
             }
-
-            var nextNode = this.findMinNode(node.right);
-            node.value = nextNode.value;
-
-            node.right = this.removeNode(node.right, nextNode.value);
-            this.updateTreeHeight();
-            return node;
         }
+        return root;
     }
 
     findMinNode(node){
@@ -339,8 +343,13 @@ class BinarySearchTree {
     }
 
     collidesWith(node, x, y){
+        if(node == null){
+            return -999;
+        }
         if(node.collides(x, y)){
             this.selectedNode = node.value;
+            this.clearSelected(this.root);
+            node.selected = true;
             return node.value;
         }
         var ret = -999;
@@ -403,6 +412,14 @@ class BinarySearchTree {
         }
     }
 
+    clearSelected(root){
+        if(root != null){
+            root.selected = false;
+            this.clearSelected(root.left);
+            this.clearSelected(root.right);
+        }
+    }
+
     drawLine(x1, y1, x2, y2){
         ctx.beginPath();
         ctx.moveTo(x1, y1);
@@ -430,8 +447,12 @@ class BinarySearchTree {
             ctx.strokeStyle = "#a11996ff";
         } else if(node.rotatingUp){
             ctx.strokeStyle = "#31ff31ff";
+        } else if(node.deleting){
+           ctx.strokeStyle = "#7539adff";
+        } else if(node.selecting){
+            ctx.strokeStyle = "#FFFF00";  
         } else {
-           ctx.strokeStyle = "#FF2400";
+            ctx.strokeStyle = "#FF2400";
         }
     }    
 }

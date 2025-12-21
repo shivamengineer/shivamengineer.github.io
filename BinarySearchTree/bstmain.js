@@ -61,6 +61,15 @@ function rotateNodeWithValue(){
     document.getElementById("RotateNode").value = "";
 }
 
+function removeNodeFromNumber(){
+    const numberInput = document.getElementById("DeleteNumber").value;
+    var num = parseInt(numberInput);
+    if(num != NaN && num >= 0){
+        bst.removeNode(bst.root, num);
+    }
+    document.getElementById("DeleteNumber").value = "";
+}
+
 function switchDir(){
     const dir = document.getElementById("RotateDirection").checked;
     if(dir){
@@ -118,15 +127,19 @@ function keyboard(e){
         case 13:
             const insertInput = document.getElementById("BSTNumber");
             const rotateInput = document.getElementById("RotateNode");
+            const deleteInput = document.getElementById("DeleteNumber");
             if(document.activeElement === insertInput){
                 this.addNodeFromNumber();
             } else if(document.activeElement === rotateInput){
                 this.rotateNodeWithValue();
+            } else if(document.activeElement === deleteInput){
+                this.removeNodeFromNumber();
             }
             break;
         case 46:
             if(lastSelected != -999){
-                //bst.remove(lastSelected);
+                bst.removeNode(bst.root, lastSelected);
+                bst.clearSelected(bst.root);
             }
             lastSelected = -999;
             break;
