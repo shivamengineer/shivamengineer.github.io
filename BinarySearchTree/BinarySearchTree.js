@@ -57,48 +57,6 @@ class BinarySearchTree {
         }
     }
 
-    /*remove(value){
-        this.root = this.removeNode(this.root, value);
-    }
-
-    removeNode(node, value){
-        if(node == null){
-            return null;
-        } else if(value < node.value){
-            this.removeNode(node.left, value);
-            node.position--;
-            this.decreasePositionForSubtree(node.right);
-            this.updateTreeHeight();
-            return node;
-        } else if(value > node.value){
-            this.removeNode(node.right, value);
-            this.updateTreeHeight();
-            return node;
-        } else {
-            if(node.left == null && node.right == null){
-                node = null;
-                this.updateTreeHeight();
-                return null;
-            }
-            if(node.left == null){
-                node = node.right;
-                this.updateTreeHeight();
-                return node;
-            } else if(node.right == null){
-                node = node.left;
-                this.updateTreeHeight();
-                return node;
-            }
-
-            var nextNode = this.findMinNode(node.right);
-            node.value = nextNode.value;
-
-            node.right = this.removeNode(node.right, nextNode.value);
-            this.updateTreeHeight();
-            return node;
-        }
-    }*/
-
     getSuccessor(node){
         node = node.right;
         while(node != null && node.left != null){
@@ -113,13 +71,6 @@ class BinarySearchTree {
             node = node.right;
         }
         return node;
-    }
-
-    remove(value){
-        var node = this.findNodeFromValue(value);
-        if(node != null){
-            this.removeNode(node);
-        }
     }
 
     removeNode(root, x){
@@ -151,52 +102,6 @@ class BinarySearchTree {
         }
         return root;
     }
-
-    /*removeNode(node){
-        var parent = this.findParentFromValue(node.value);
-        var rightChild = true;
-        if(parent.left == node){
-            rightChild = false;
-        }
-        if(node.left == null && node.right == null){
-            if(rightChild){
-                parent.right = null;
-            } else {
-                parent.left = null;
-            }
-            return null;y
-        } else if(node.left != null){
-            var next = node.left;
-            var nextParent = node;
-            while(next.right != null){
-                nextParent = next;
-                next = next.right;
-            }
-            if(rightChild){
-                parent.right = next;
-                nextParent.right = removeNode(next);
-            } else if(node.right != null){
-                parent.left = next;
-                nextParent.right = removeNode(next);
-            }
-            return next;
-        } else if(node.right != null){
-            var next = node.right;
-            var nextParent = node;
-            while(next.left != null){
-                nextParent = next;
-                next = next.left;
-            }
-            if(rightChild){
-                parent.right = next;
-                nextParent.left = removeNode(next);
-            } else {
-                parent.left = next;
-                nextParent.left = removeNode(next);
-            }
-            return next;
-        }
-    }*/ 
 
     findMinNode(node){
         if(node.left == null){
@@ -443,6 +348,8 @@ class BinarySearchTree {
         }
         if(node.collides(x, y)){
             this.selectedNode = node.value;
+            this.clearSelected(this.root);
+            node.selected = true;
             return node.value;
         }
         var ret = -999;
@@ -505,6 +412,14 @@ class BinarySearchTree {
         }
     }
 
+    clearSelected(root){
+        if(root != null){
+            root.selected = false;
+            this.clearSelected(root.left);
+            this.clearSelected(root.right);
+        }
+    }
+
     drawLine(x1, y1, x2, y2){
         ctx.beginPath();
         ctx.moveTo(x1, y1);
@@ -532,8 +447,12 @@ class BinarySearchTree {
             ctx.strokeStyle = "#a11996ff";
         } else if(node.rotatingUp){
             ctx.strokeStyle = "#31ff31ff";
+        } else if(node.deleting){
+           ctx.strokeStyle = "#7539adff";
+        } else if(node.selecting){
+            ctx.strokeStyle = "#FFFF00";  
         } else {
-           ctx.strokeStyle = "#FF2400";
+            ctx.strokeStyle = "#FF2400";
         }
     }    
 }

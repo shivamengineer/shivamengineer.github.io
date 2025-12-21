@@ -34,6 +34,7 @@ class Node {
             this.inserting = false;
             this.rotating = false;
             this.rotatingUp = false;
+            this.deleting = false;
         }
     }
 
@@ -71,6 +72,12 @@ class Node {
         } else if(this.rotatingUp){
             ctx.strokeStyle = "#31ff31ff";
             ctx.fillStyle = "#31ff31ff";
+        } else if(this.deleting){
+            ctx.strokeStyle = "#7539adff";
+            ctx.fillStyle = "#7539adff";
+        } else if(this.selected){
+            ctx.strokeStyle = "#FFFF00";
+            ctx.fillStyle = "#FFFF00";
         } else {
             ctx.strokeStyle = "#FF2400";
             ctx.fillStyle = "white";

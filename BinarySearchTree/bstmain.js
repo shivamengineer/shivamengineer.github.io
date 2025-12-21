@@ -137,9 +137,9 @@ function keyboard(e){
             }
             break;
         case 46:
-            console.log("last selected" + lastSelected);
             if(lastSelected != -999){
                 bst.removeNode(bst.root, lastSelected);
+                bst.clearSelected(bst.root);
             }
             lastSelected = -999;
             break;
