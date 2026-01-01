@@ -65,7 +65,7 @@ function removeNodeFromNumber(){
     const numberInput = document.getElementById("DeleteNumber").value;
     var num = parseInt(numberInput);
     if(num != NaN && num >= 0){
-        bst.removeNode(bst.root, num);
+        bst.deleteNode(bst.root, num);
     }
     document.getElementById("DeleteNumber").value = "";
 }
@@ -138,7 +138,7 @@ function keyboard(e){
             break;
         case 46:
             if(lastSelected != -999){
-                bst.removeNode(bst.root, lastSelected);
+                bst.deleteNode(bst.root, lastSelected);
                 bst.clearSelected(bst.root);
             }
             lastSelected = -999;
