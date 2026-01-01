@@ -2,8 +2,29 @@
 <html>
     <body>
         <a href="https://shivamengineer.github.io">Home</a>
+        <style>
+            .container {
+                display: flex;
+                align-items: center;
+            }
+            .textBox {
+                margin-left: 10px;
+            }
+        </style>
+        <div class="container">
+            <h2>
+            <label for="Push" name="Push" min="0">Number to push:</label>
+            <input type="number" id="Push"></input>
+            <button onclick="pushNumber()">Push</button>
+            <t></t>
+            <label for="Pop" name="Pop" min="0">Pop( )</label>
+            <button onClick="popNumber()">Pop</button>
+            </h2>    
+        </div>
         <canvas></canvas>
         <h2>Stack</h2>
+        <script src="Element.js"></script>
+        <script src="Stack.js"></script>
         <script src="stackmain.js"></script>
     </body>
 </html>
