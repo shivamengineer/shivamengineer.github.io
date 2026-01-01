@@ -13,6 +13,7 @@ class BinarySearchTree {
             this.setPositionsRecursively(this.root, 0);
             this.updateTreeHeight();
             this.numNodes = this.root.size;
+            this.setMoving(this.root);            
         }
     }
 
@@ -139,10 +140,18 @@ class BinarySearchTree {
 
             if(node.left != null){
                 var predecessor = this.getPredecessor(node);
+                node.x = predecessor.x;
+                node.y = predecessor.y;
+                node.setTargetDrawingAttributes(this.getX(node), this.getY(node));
+                node.deleting = true;
                 node.value = predecessor.value;
                 node.left = this.removeNode(node.left, predecessor.value);
             } else if(node.right != null){
                 var successor = this.getSuccessor(node);
+                node.x = successor.x;
+                node.y = successor.y;
+                node.setTargetDrawingAttributes(this.getX(node), this.getY(node));
+                node.deleting = true;
                 node.value = successor.value;
                 node.right = this.removeNode(node.right, successor.value);
             }

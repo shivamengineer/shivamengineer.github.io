@@ -90,7 +90,7 @@ class Node {
     }
 
     setTextColors(){
-        if(this.inserting || this.rotating || this.rotatingUp){
+        if(this.inserting || this.rotating || this.rotatingUp || this.deleting || this.selected){
             ctx.fillStyle = "black";
         } else {
             ctx.fillStyle = "red";
