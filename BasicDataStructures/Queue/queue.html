@@ -2,8 +2,29 @@
 <html>
     <body>
         <a href="https://shivamengineer.github.io">Home</a>
+        <style>
+            .container {
+                display: flex;
+                align-items: center;
+            }
+            .textBox {
+                margin-left: 10px;
+            }
+        </style>
+        <div class="container">
+            <h2>
+            <label for="Enqueue" name="Enqueue" min="0">Number to enqueue:</label>
+            <input type="number" id="Enqueue"></input>
+            <button onclick="enqueueNumber()">Enqueue</button>
+            <t></t>
+            <label for="Dequeue" name="Dequeue" min="0">Dequeue( )</label>
+            <button onClick="dequeueNumber()">Dequeue</button>
+            </h2>    
+        </div>
         <canvas></canvas>
         <h2>Queue</h2>
+        <script src="Element.js"></script>
+        <script src="Queue.js"></script>
         <script src="queuemain.js"></script>
     </body>
 </html>
