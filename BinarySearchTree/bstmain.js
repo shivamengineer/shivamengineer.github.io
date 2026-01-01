@@ -4,12 +4,6 @@ const ctx = canvas.getContext('2d');
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 
-/*var inputNum = 0;
-var initialWidth = 50;
-var inputBox = {height: 60, width: initialWidth, x: 20, y: 20, color: "white", text: 0};
-var input = false;
-var changeSize = false;*/
-
 var bst = new BinarySearchTree();
 
 var mousedown = false;
