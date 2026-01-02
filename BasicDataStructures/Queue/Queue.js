@@ -25,7 +25,7 @@ class Queue {
     dequeue() {
         if (this.items.length > 0){
             var difference = 60 * this.leaving.length;
-            this.elements[0].setTargetDrawingAttributes(innerWidth * 0.6 + difference, innerHeight * 0.1);
+            this.elements[0].setTargetDrawingAttributes(innerWidth * 0.6 + difference, innerHeight * 0.5);
             this.elements[0].moveYFirst = true;
             this.leaving.push(this.elements.shift());
             this.setElementTargetPosition();
