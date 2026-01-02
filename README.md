@@ -22,6 +22,8 @@ helpful to better illustrate how a stack can be used, so maybe having a string o
 be a useful feature to add in the near future.
 ## [Queue](BasicDataStructures/Queue/queue.html)
 Queues are pretty similar in complexity to stacks, though they generally have different applications. 
+I think for both queues and stacks, it's the most simple to think of real life examples, but I thought
+that a visualization for both of these would still be useful, as it's a bit confusing when it's just numbers.
 I'll need to change this and the stack to allow the user to input more than just positive numbers, but I
 thought that it would be simple just to allow that. But adding strings might make it more obvious how they
 can be used for queues as well. I also think it will be useful for the queue as well to add some visual for
