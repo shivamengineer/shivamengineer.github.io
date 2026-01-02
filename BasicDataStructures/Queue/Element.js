@@ -40,12 +40,52 @@ class Element {
     }
 
     updateDrawingAttributes(){
+        if(this.moveXFirst){
+            this.updateDrawingAttributesXFirst();
+        } else if(this.moveYFirst){
+            this.updateDrawingAttributesYFirst();
+        } else {
+            this.updateDrawingAttributesBase();
+        }
+    }
+
+    updateDrawingAttributesBase(){
         for(var i = 0; i < 5; i++){
             this.moveX();
             this.moveY();
         }
         if(!this.movingX && !this.movingY){ 
             this.moving = false;
+        }
+    }
+
+    updateDrawingAttributesXFirst(){
+        for(var i = 0; i < 5; i++){
+            if(this.movingX){
+                this.moveX();
+            } else if(this.movingY){
+                this.moveY();
+            }
+        }
+        if(!this.movingX && !this.movingY){ 
+            this.moving = false;
+            this.moveXFirst = false;
+            this.moveYFirst = false;
+        }
+    }
+
+    updateDrawingAttributesYFirst(){
+        for(var i = 0; i < 5; i++){
+            if(this.movingY){
+                this.moveY();
+            } else if(this.movingX){
+                this.moveX();
+            }
+        }
+        if(!this.movingX && !this.movingY){ 
+            this.moving = false;
+            this.moveXFirst = false;
+            this.moveYFirst = false;
         }
     }
 
