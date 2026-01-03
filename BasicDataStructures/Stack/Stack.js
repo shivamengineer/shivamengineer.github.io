@@ -7,7 +7,7 @@ class Stack {
 
     push(element) {
         var e = new Element(element);
-        var difference = innerHeight * 0.05 * this.items.length;
+        var difference = innerHeight * 0.05 * this.items.length + 1;
         e.setElementDrawingAttributes(innerWidth * 0.1, innerHeight * 0.1, innerWidth * 0.2, innerHeight * 0.05);
         e.setTargetDrawingAttributes(innerWidth * 0.4, innerHeight * 0.85 - difference);
         e.moveXFirst = true;
@@ -17,7 +17,7 @@ class Stack {
 
     pop() {
         if (this.items.length != 0){
-            var difference = innerHeight * 0.05 * this.leaving.length;
+            var difference = innerHeight * 0.05 * this.leaving.length + 1;
             this.elements[this.elements.length - 1].setTargetDrawingAttributes(innerWidth * 0.8, innerHeight * 0.2 + difference);
             this.elements[this.elements.length - 1].moveYFirst = true;
             this.leaving.push(this.elements.pop());
