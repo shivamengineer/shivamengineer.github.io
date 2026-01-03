@@ -41,7 +41,10 @@ class Element {
         }
     }
 
-    updateDrawingAttributes(){
+    updateDrawingAttributes(otherElement){
+        if(otherElement != null && this.collides(otherElement)){
+            return;
+        }
         this.moveX();
         this.moveY();
         if( !this.movingX && !this.movingY ){ 
@@ -54,5 +57,14 @@ class Element {
         ctx.fillStyle = "white";
         ctx.font = "20px Arial";
         ctx.fillText(this.value, this.x + this.width / 2.5, this.y + (3 * this.height / 4));
+    }
+
+    collides(element2){
+        if(this.x < element2.x + element2.width &&
+           this.x + this.width > element2.x &&
+           this.y < element2.y + element2.height &&
+           this.y + this.height > element2.y){
+            return true;
+        }
     }
 }

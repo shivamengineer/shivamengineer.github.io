@@ -62,12 +62,20 @@ class Stack {
             
             for(var i = 0; i < this.elements.length; i++){
                 this.elements[i].drawElement();
-                this.elements[i].updateDrawingAttributes();
+                if(i > 0){
+                    this.elements[i].updateDrawingAttributes(this.elements[i-1]);
+                } else {
+                    this.elements[i].updateDrawingAttributes();
+                }
             }
 
             for(var i = 0; i < this.leaving.length; i++){
                 this.leaving[i].drawElement();
-                this.leaving[i].updateDrawingAttributes();
+                if(i > 0){
+                    this.leaving[i].updateDrawingAttributes(this.leaving[i - 1]);
+                } else {
+                    this.leaving[i].updateDrawingAttributes();
+                }
                 if(!this.leaving[i].moving){
                     this.leaving.splice(i, 1);
                     i--;
