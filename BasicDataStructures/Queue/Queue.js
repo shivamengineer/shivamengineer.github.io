@@ -14,7 +14,7 @@ class Queue {
 
     enqueue(element) {
         var e = new Element(element);
-        var difference = 60 * this.items.length;
+        var difference = 60 * this.items.length + 4;
         e.setElementDrawingAttributes(innerWidth * 0.1, innerHeight * 0.1, 60, innerHeight * 0.05);
         e.setTargetDrawingAttributes(innerWidth * 0.1 + difference, innerHeight * 0.3);
         e.moveXFirst = true;
@@ -68,11 +68,19 @@ class Queue {
             ctx.font = "20px Arial";
             for(var i = 0; i < this.elements.length; i++){
                 this.elements[i].drawElement();
-                this.elements[i].updateDrawingAttributes();
+                if(i > 0){
+                    this.elements[i].updateDrawingAttributes(this.elements[i-1]);
+                } else {
+                    this.elements[i].updateDrawingAttributes();
+                }
             }
             for(var j = 0; j < this.leaving.length; j++){
                 this.leaving[j].drawElement();
-                this.leaving[j].updateDrawingAttributes();
+                if(j > 0){
+                    this.leaving[j].updateDrawingAttributes(this.leaving[j - 1]);
+                } else {
+                    this.leaving[j].updateDrawingAttributes();
+                }
                 if(!this.leaving[j].moving){
                     this.leaving.splice(j, 1);
                     j--;
