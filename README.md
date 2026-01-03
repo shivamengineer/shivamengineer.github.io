@@ -6,14 +6,11 @@
             justify-content: space-between;
             font-size:18px;
         }
-        .horizontal-margin {
-            margin-left: 20px;
-            margin-right: 1000px;
-        }
         a {
             color:mediumvioletred
         }
         p {
+            margin-right: 50%;
             font-size:18px;
             font-family:Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
         }
