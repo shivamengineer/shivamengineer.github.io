@@ -11,7 +11,7 @@ var canRotate = false;
 var lastSelected = -999;
 var lastX;
 var lastY;
-var startScrollY = -90;
+var startScrollY = -150;
 var scrollX = 0;
 var scrollY = 0;
 
