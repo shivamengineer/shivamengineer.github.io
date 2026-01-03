@@ -35,8 +35,8 @@ a:visited {
     text-decoration: none;
 }
 
-.rectangle {
-    width: 100%;
+.rectangle-header-button {
+    width: 99%;
     height: 60px;
     background-color: mediumpurple;
     border: 2px solid black;
@@ -44,4 +44,12 @@ a:visited {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    transition-property: background-color;
+    transition-duration: 1s;
+    transition-delay: 5ms;
+}
+
+.rectangle-header-button:hover {
+    background-color:deeppink;
 }
