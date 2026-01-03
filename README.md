@@ -1,6 +1,6 @@
 ---
 layout: forward
-target: /dsmain.html
+target: shivamengineer.github.io/dsmain.html
 ---
 <!--
 <body>
