@@ -7,9 +7,18 @@
         <style>
             .container {
                 display: flex;
-                align-items: center;
-                justify-content: space-between;
+                align-items:left;
+                justify-content:space-between;
                 font-size:18px;
+            }
+            .container a {
+                flex: 1;
+                text-decoration: none;
+            }
+            p {
+                margin-left: 20px;
+                margin-right: 50%;
+                line-height: 1.5;
             }
             .horizontal-margin {
                 margin-left: 20px;
@@ -22,16 +31,32 @@
                 scroll-behavior: smooth;
             }
             a:link, a:visited {
-                color:blue;
+                color:black;
                 text-decoration: none;
+            }
+            .rectangle {
+                width: 100%;
+                height: 60px;
+                background-color:mediumpurple;
+                border:2px solid black;
+                color:medium;
+                display:flex;
+                justify-content: center;
+                align-items: center;
             }
         </style>
     </head>
     <body>
         <div class="container">
-            <a href="https://shivamengineer.github.io">Home</a>
-            <a href="./dsmain.html">Data Structures</a>
-            <a href="#about">About Me</a>
+            <a href="index.html">
+                <div class="rectangle">Home</div>
+            </a>
+            <a href="dsmain.html">
+                <div class="rectangle">Data Structures</div>
+            </a>
+            <a href="#about">
+                <div class="rectangle">About Me</div>
+            </a>
         </div>
         <h1 class="wp-block-heading">Data Structures</h1>
         <p class="horizontal-margin" style="line-height: 1.5">There are countless data structures that are all important for programmers to learn,so I thought it might be helpful to have some visualizations for different data structures to make it easier to visualize many of them. I don't have many so far, but I plan to keep adding more, both because I think it will be helpful to have visualizations of more data structures, and also that it's kinda fun to make them. Also, there isn't really a specific correct way to illustrate the data structures, so this is just how I thought would illustrate them best. Here are the different visualizations I have made so far:</p>
