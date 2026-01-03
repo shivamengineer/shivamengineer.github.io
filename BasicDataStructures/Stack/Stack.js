@@ -17,8 +17,7 @@ class Stack {
 
     pop() {
         if (this.items.length != 0){
-            var difference = innerHeight * 0.05 * this.leaving.length + 1;
-            this.elements[this.elements.length - 1].setTargetDrawingAttributes(innerWidth * 0.8, innerHeight * 0.2 + difference);
+            this.elements[this.elements.length - 1].setTargetDrawingAttributes(innerWidth * 0.8, innerHeight * 0.2);
             this.elements[this.elements.length - 1].moveYFirst = true;
             this.leaving.push(this.elements.pop());
             return this.items.pop();
