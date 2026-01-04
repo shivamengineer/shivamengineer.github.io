@@ -55,6 +55,10 @@ class Node {
         }
     }
 
+    getNodeHeight(){
+        return Math.floor(Math.log2(this.id)) + 1;
+    }
+
     isMoving(){
         return moving;
     }

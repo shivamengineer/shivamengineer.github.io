@@ -10,7 +10,7 @@ function insertNumber(){
     const insertInput = document.getElementById("Insert").value;
     var num = parseInt(insertInput);
     if(num != NaN && num >= 0){
-        heap.insertNumber(num);
+        heap.insert(num);
     }
     document.getElementById("Insert").value = "";
 }
@@ -28,7 +28,7 @@ function clearscreen(){
 
 function draw(){
     clearscreen();
-    queue.drawHeap();
+    heap.drawHeap();
 }
 
 function keyboard(e){

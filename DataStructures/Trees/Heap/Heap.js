@@ -9,8 +9,11 @@ class Heap {
     }
 
     insertNode(node){
+        node.setNodeDrawingAttributes(this.getX(node), this.getY(node), 50);
         this.arr.push(node);
         this.siftUp();
+        this.updateHeight();
+        this.updateNodePositions();
     }
 
     siftDown(){
@@ -33,6 +36,8 @@ class Heap {
         this.swapNodes(0, this.arr.length - 1);
         var max = this.arr.pop();
         this.siftDown();
+        this.updateHeight();
+        this.updateNodePositions();
         return max;
     }
 
@@ -69,5 +74,37 @@ class Heap {
 
     updateHeight(){
         this.height = Math.floor(Math.log2(this.arr.length)) + 1;
+    }
+
+    getX(node){
+        var height = node.getNodeHeight();
+        var numNodesAtHeight = Math.pow(2, height);
+        var pos = node.id - Math.pow(2, height - 1);
+        var middle = innerWidth / 2;
+        return ((2 * innerWidth / (numNodesAtHeight + 1)) * (pos + 1));
+    }
+
+    getY(node){
+        return (((innerHeight * 5 / 6) / this.height) * node.getNodeHeight());
+    }
+
+    drawHeap(){
+        for(var i = 0; i < this.arr.length; i++){
+            this.arr[i].drawNode();
+            if(this.arr[i].moving){
+                this.arr[i].updateDrawingAttributes();
+            }
+        }
+    }
+
+    updateNodePositions(){
+        for(var i = 0; i < this.arr.length; i++){
+            this.arr[i].setNodeDrawingAttributes(this.getX(this.arr[i]), this.getY(this.arr[i]), 50);
+            this.arr[i].moving = true;
+        }
+    }
+
+    size(){
+        return this.arr.length;
     }
 }
