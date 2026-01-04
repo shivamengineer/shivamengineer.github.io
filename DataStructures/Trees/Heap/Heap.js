@@ -9,8 +9,9 @@ class Heap {
     }
 
     insertNode(node){
-        node.setNodeDrawingAttributes(this.getX(node), this.getY(node), 50);
         this.arr.push(node);
+        this.updateHeight();
+        node.setNodeDrawingAttributes(this.getX(node), this.getY(node), 50);
         this.siftUp();
         this.updateHeight();
         this.updateNodePositions();
@@ -43,9 +44,10 @@ class Heap {
 
     //former parent is node1
     swapNodes(i, j){
-        var tempNode = this.arr[i];
-        this.arr[i] = this.arr[j];
-        this.arr[j] = tempNode;
+        [this.arr[i], this.arr[j]] = [this.arr[j], this.arr[i]];
+        var temp = this.arr[i].id;
+        this.arr[i].id = this.arr[j].id;
+        this.arr[j].id = temp;
     }
 
     trySwapDown(id){
@@ -69,7 +71,9 @@ class Heap {
         var parentIndex = Math.floor(id / 2) - 1;
         if(this.arr[parentIndex].value < this.arr[id - 1].value){
             this.swapNodes(parentIndex, id - 1);
+            return true;
         }
+        return false;
     }
 
     updateHeight(){
@@ -99,7 +103,7 @@ class Heap {
 
     updateNodePositions(){
         for(var i = 0; i < this.arr.length; i++){
-            this.arr[i].setNodeDrawingAttributes(this.getX(this.arr[i]), this.getY(this.arr[i]), 50);
+            this.arr[i].setTargetDrawingAttributes(this.getX(this.arr[i]), this.getY(this.arr[i]));
             this.arr[i].moving = true;
         }
     }
