@@ -94,11 +94,25 @@ class Heap {
 
     drawHeap(){
         for(var i = 0; i < this.arr.length; i++){
+            var j = i + 1;
+            if(this.arr.length >= 2 * j){
+                this.drawLine(this.arr[i].x, this.arr[i].y, this.arr[(2 * j) - 1].x, this.arr[(2 * j) - 1].y);
+            }
+            if(this.arr.length >= (2 * j) + 1){
+                this.drawLine(this.arr[i].x, this.arr[i].y, this.arr[2 * j].x, this.arr[2 * j].y);
+            }
             this.arr[i].drawNode();
             if(this.arr[i].moving){
                 this.arr[i].updateDrawingAttributes();
             }
         }
+    }
+
+    drawLine(x1, y1, x2, y2){
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
     }
 
     updateNodePositions(){
