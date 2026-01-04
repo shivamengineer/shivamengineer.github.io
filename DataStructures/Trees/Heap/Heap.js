@@ -92,7 +92,6 @@ class Heap {
         var leftStart = innerWidth / 10;
         var treeWidth = innerWidth * 0.8;
         var pos = node.id - Math.pow(2, height - 1) + 1;
-        console.log("value: " + node.value + ", pos: " + pos + " / " + numNodesAtHeight);
         var middle = innerWidth / 2;
         return ((innerWidth / (numNodesAtHeight + 1)) * pos);
     }
