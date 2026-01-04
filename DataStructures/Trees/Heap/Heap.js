@@ -101,6 +101,7 @@ class Heap {
             if(this.arr.length >= (2 * j) + 1){
                 this.drawLine(this.arr[i].x, this.arr[i].y, this.arr[2 * j].x, this.arr[2 * j].y);
             }
+            this.arr[i].fillNode();
             this.arr[i].drawNode();
             if(this.arr[i].moving){
                 this.arr[i].updateDrawingAttributes();
