@@ -87,10 +87,14 @@ class Heap {
 
     getX(node){
         var height = node.getNodeHeight();
-        var numNodesAtHeight = Math.pow(2, height);
-        var pos = node.id - Math.pow(2, height - 1);
+        var numNodesAtHeight = Math.pow(2, height - 1);
         var middle = innerWidth / 2;
-        return ((2 * innerWidth / (numNodesAtHeight + 1)) * (pos + 1));
+        var leftStart = innerWidth / 10;
+        var treeWidth = innerWidth * 0.8;
+        var pos = node.id - Math.pow(2, height - 1) + 1;
+        console.log("value: " + node.value + ", pos: " + pos + " / " + numNodesAtHeight);
+        var middle = innerWidth / 2;
+        return ((innerWidth / (numNodesAtHeight + 1)) * pos);
     }
 
     getY(node){
