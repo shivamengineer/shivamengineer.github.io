@@ -9,6 +9,7 @@ class Heap {
     }
 
     insertNode(node){
+        node.inserting = true;
         this.arr.push(node);
         this.updateHeight();
         node.setNodeDrawingAttributes(this.getX(node), this.getY(node), 50);
@@ -19,6 +20,7 @@ class Heap {
 
     siftDown(){
         var node = this.arr[0];
+        node.siftingDown = true;
         var sifting = true;
         while(sifting){
             sifting = this.trySwapDown(node.id);
@@ -27,6 +29,7 @@ class Heap {
 
     siftUp(){
         var node = this.arr[this.arr.length - 1];
+        node.siftingUp = true;
         var sifting = true;
         while(sifting){
             sifting = this.trySwapUp(node.id);
@@ -35,6 +38,7 @@ class Heap {
 
     extractMax(){
         this.swapNodes(0, this.arr.length - 1);
+        this.arr[this.arr.length - 1].deleting = true;
         var max = this.arr.pop();
         this.siftDown();
         this.updateHeight();
@@ -44,6 +48,7 @@ class Heap {
 
     //former parent is node1
     swapNodes(i, j){
+        this.arr[i].swapping = true;
         [this.arr[i], this.arr[j]] = [this.arr[j], this.arr[i]];
         var temp = this.arr[i].id;
         this.arr[i].id = this.arr[j].id;

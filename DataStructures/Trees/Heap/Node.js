@@ -32,6 +32,10 @@ class Node {
         if( !this.movingX && !this.movingY ){ 
             this.moving = false;
             this.inserting = false;
+            this.siftingUp = false;
+            this.siftingDown = false;
+            this.deleting = false;
+            this.swapping = false;
         }
     }
 
@@ -67,6 +71,18 @@ class Node {
         if(this.inserting){
             ctx.strokeStyle = "#1876adff";
             ctx.fillStyle = "#1876adff";
+        } else if(this.siftingUp){
+            ctx.strokeStyle = "#a11996ff";
+            ctx.fillStyle = "#a11996ff";
+        } else if(this.siftingDown){
+            ctx.strokeStyle = "#31ff31ff";
+            ctx.fillStyle = "#31ff31ff";
+        } else if(this.deleting){
+            ctx.strokeStyle = "#7539adff";
+            ctx.fillStyle = "#7539adff";
+        } else if(this.swapping){
+            ctx.strokeStyle = "#FFFF00";
+            ctx.fillStyle = "#FFFF00";
         } else {
             ctx.strokeStyle = "#FF2400";
             ctx.fillStyle = "white";
