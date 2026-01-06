@@ -1,0 +1,111 @@
+.piano-start {
+    color:lightslategrey;
+    width:100px;
+    height:120px;
+    background-color:cadetblue;
+    border: 2px solid black;
+    border-radius: 10px;
+    position:absolute;
+
+    animation-duration:2s;
+    animation-name: create-piano;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-direction:normal;
+    animation-fill-mode: forwards;
+}
+
+.white-key {
+    position:relative;
+    color: white;
+    background-color: white;
+    width:50px;
+    height:120px;
+    border:2px solid black;
+    border-radius: 1px;
+
+    animation-duration:2s;
+    animation-name: create-key;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-direction:normal;
+    animation-fill-mode: forwards;
+}
+
+.black-key {
+    position:relative;
+    color:black;
+    background-color:black;
+    width:30px;
+    height:80px;
+    border:2px solid black;
+    border-radius: 2px;
+
+    animation-duration: 2s;
+    animation-name: create-key;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-direction:normal;
+    animation-fill-mode:forwards;
+}
+
+.white-key-container {
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    gap: 2px;
+}
+
+.black-key-container {
+    display: flex;
+    align-items: left;
+    justify-content:left;
+    gap:22px;
+}
+
+@keyframes create-piano {
+    0%{
+        border-radius:0%;
+    }
+    100%{
+        background-color:lightslategray;
+        transform: skew(-20deg) translateX(200px);
+        border-radius:0%;
+        width:776px;
+        height:120px;
+    }
+}
+
+@keyframes create-key {
+    0%{
+
+    }
+    100%{
+        transform: skew(-20deg) translateX(200px);     
+    }
+}
+
+@keyframes move-piano {
+    0%{
+        background-color:lightslategray;
+        transform: skew(-20deg) translateX(300px);
+        border-radius:0%;
+        width:800px;
+        height:120px;
+    }
+    100%{
+        background-color:lightslategray;
+        transform: skew(-20deg) translateX(300px) translateY(300px);
+        border-radius:0%;
+        width:800px;
+        height:120px;
+    }
+}
+
+.piano-start.move {
+    animation-name: move-piano;
+}
+
+.piano-start.create {
+    animation-name: create-piano;
+}
