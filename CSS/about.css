@@ -41,6 +41,8 @@
     border:2px solid black;
     border-radius: 2px;
 
+    z-index: -1;
+
     animation-duration: 2s;
     animation-name: create-key;
     animation-timing-function: ease;
@@ -62,6 +64,41 @@
     justify-content:left;
     gap:22px;
     transform: translateX(44px) translateY(-124px);
+}
+
+.black-key-container-3 {
+    display: flex;
+    align-items: left;
+    justify-content:left;
+    gap:22px;
+    transform: translateX(44px) translateY(-124px);
+}
+
+.black-key-container-3-2 {
+    position: absolute;
+    display: flex;
+    align-items: left;
+    justify-content:left;
+    gap:22px;
+    transform: translateX(438px) translateY(-124px);
+}
+
+.black-key-container-2 {
+    position: absolute;
+    display: flex;
+    align-items: left;
+    justify-content:left;
+    gap:22px;
+    transform: translateX(268px) translateY(-124px);
+}
+
+.black-key-container-2-2 {
+    position: absolute;
+    display: flex;
+    align-items: left;
+    justify-content:left;
+    gap:22px;
+    transform: translateX(662px) translateY(-124px);
 }
 
 @keyframes create-piano {
