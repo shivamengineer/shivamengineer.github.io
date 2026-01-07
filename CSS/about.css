@@ -32,6 +32,10 @@
     animation-fill-mode: forwards;
 }
 
+.white-key:hover {
+    background-color:royalblue;
+}
+
 .black-key {
     position:relative;
     color:black;
