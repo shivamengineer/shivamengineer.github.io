@@ -61,6 +61,7 @@
     align-items: left;
     justify-content:left;
     gap:22px;
+    transform: translateX(44px) translateY(-124px);
 }
 
 @keyframes create-piano {
