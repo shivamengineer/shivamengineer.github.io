@@ -37,7 +37,6 @@
 }
 
 .black-key {
-    position:relative;
     color:black;
     background-color:black;
     width:30px;
@@ -45,14 +44,334 @@
     border:2px solid black;
     border-radius: 2px;
 
-    z-index: -1;
+    z-index: 1;
+
+    transform: translateX(-100px)skew(-20deg);
 
     animation-duration: 2s;
-    animation-name: create-key;
     animation-timing-function: ease;
     animation-iteration-count: 1;
     animation-direction:normal;
     animation-fill-mode:forwards;
+}
+
+.black-key:hover {
+    background-color:orange;
+}
+
+.a-sharp {
+    position: absolute;
+    animation-name: create-a-sharp;
+    animation-delay: 100ms;
+}
+
+@keyframes create-a-sharp {
+    0% {
+        transform: translateX(240px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(240px) translateY(-124px) skew(-20deg);
+    }
+}
+
+.c-sharp {
+    position: absolute;
+    animation-name: create-c-sharp;
+    animation-delay: 200ms;
+}
+
+@keyframes create-c-sharp {
+    0% {
+        transform: translateX(356px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(356px) translateY(-124px) skew(-20deg);
+    }
+}
+
+.d-sharp {
+    position: absolute;
+    animation-name: create-d-sharp;
+    animation-delay: 300ms;
+}
+
+@keyframes create-d-sharp {
+    0% {
+        transform: translateX(412px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(412px) translateY(-124px) skew(-20deg);
+    }
+}
+
+.f-sharp {
+    position: absolute;
+    animation-name: create-f-sharp;
+    animation-delay: 400ms;
+}
+
+@keyframes create-f-sharp {
+    0% {
+        transform: translateX(524px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(524px) translateY(-124px) skew(-20deg);
+    }
+}
+
+.g-sharp {
+    position: absolute;
+    animation-name: create-g-sharp;
+    animation-delay: 500ms;
+}
+
+@keyframes create-g-sharp {
+    0% {
+        transform: translateX(580px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(580px) translateY(-124px) skew(-20deg);
+    }
+}
+
+.a-sharp-2 {
+    position: absolute;
+    animation-name: create-a-sharp-2;
+    animation-delay: 600ms;
+}
+
+@keyframes create-a-sharp-2 {
+    0% {
+        transform: translateX(636px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(636px) translateY(-124px) skew(-20deg);
+    }
+}
+
+.c-sharp-2 {
+    position: absolute;
+    animation-name: create-c-sharp-2;
+    animation-delay: 700ms;
+}
+
+@keyframes create-c-sharp-2 {
+    0% {
+        transform: translateX(748px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(748px) translateY(-124px) skew(-20deg);
+    }
+}
+
+.d-sharp-2 {
+    position: absolute;
+    animation-name: create-d-sharp-2;
+    animation-delay: 800ms;
+}
+
+@keyframes create-d-sharp-2 {
+    0% {
+        transform: translateX(804px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(804px) translateY(-124px) skew(-20deg);
+    }
+}
+
+.f-sharp-2 {
+    position: absolute;
+    animation-name: create-f-sharp-2;
+    animation-delay: 900ms;
+}
+
+@keyframes create-f-sharp-2 {
+    0% {
+        transform: translateX(916px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(916px) translateY(-124px) skew(-20deg);
+    }
+}
+
+.g-sharp-2 {
+    position: absolute;
+    animation-name: create-g-sharp-2;
+    animation-delay: 1000ms;
+}
+
+@keyframes create-g-sharp-2 {
+    0% {
+        transform: translateX(972px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(972px) translateY(-124px) skew(-20deg);
+    }
+}
+
+.a-sharp-3 {
+    position: absolute;
+    animation-name: create-a-sharp-3;
+    animation-delay: 1100ms;
+}
+
+@keyframes create-a-sharp-3 {
+    0% {
+        transform: translateX(1028px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(1028px) translateY(-124px) skew(-20deg);
+    }
+}
+
+.c-sharp-3 {
+    position: absolute;
+    animation-name: create-c-sharp-3;
+    animation-delay: 1200ms;
+}
+
+@keyframes create-c-sharp-3 {
+    0% {
+        transform: translateX(1140px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(1140px) translateY(-124px) skew(-20deg);
+    }
+}
+
+.d-sharp-3 {
+    position: absolute;
+    animation-name: create-d-sharp-3;
+    animation-delay: 1300ms;
+}
+
+@keyframes create-d-sharp-3 {
+    0% {
+        transform: translateX(1196px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(1196px) translateY(-124px) skew(-20deg);
+    }
+}
+
+.f-sharp-3 {
+    position: absolute;
+    animation-name: create-f-sharp-3;
+    animation-delay: 1400ms;
+}
+
+@keyframes create-f-sharp-3 {
+    0% {
+        transform: translateX(1308px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(1308px) translateY(-124px) skew(-20deg);
+    }
+}
+
+.g-sharp-3 {
+    position: absolute;
+    animation-name: create-g-sharp-3;
+    animation-delay: 1500ms;
+}
+
+@keyframes create-g-sharp-3 {
+    0% {
+        transform: translateX(1364px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(1364px) translateY(-124px) skew(-20deg);
+    }
+}
+
+.a-sharp-4 {
+    position: absolute;
+    animation-name: create-a-sharp-4;
+    animation-delay: 1600ms;
+}
+
+@keyframes create-a-sharp-4 {
+    0% {
+        transform: translateX(1420px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(1420px) translateY(-124px) skew(-20deg);
+    }
+}
+
+.c-sharp-4 {
+    position: absolute;
+    animation-name: create-c-sharp-4;
+    animation-delay: 1700ms;
+}
+
+@keyframes create-c-sharp-4 {
+    0% {
+        transform: translateX(1532px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(1532px) translateY(-124px) skew(-20deg);
+    }
+}
+
+.d-sharp-4 {
+    position: absolute;
+    animation-name: create-d-sharp-4;
+    animation-delay: 1800ms;
+}
+
+@keyframes create-d-sharp-4 {
+    0% {
+        transform: translateX(1588px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(1588px) translateY(-124px) skew(-20deg);
+    }
+}
+
+.f-sharp-4 {
+    position: absolute;
+    animation-name: create-f-sharp-4;
+    animation-delay: 1900ms;
+}
+
+@keyframes create-f-sharp-4 {
+    0% {
+        transform: translateX(1700px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(1700px) translateY(-124px) skew(-20deg);
+    }
+}
+
+.g-sharp-4 {
+    position: absolute;
+    animation-name: create-g-sharp-4;
+    animation-delay: 2000ms;
+}
+
+@keyframes create-g-sharp-4 {
+    0% {
+        transform: translateX(1756px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(1756px) translateY(-124px) skew(-20deg);
+    }
+}
+
+.a-sharp-5 {
+    position: absolute;
+    animation-name: create-a-sharp-5;
+    animation-delay: 2100ms;
+}
+
+@keyframes create-a-sharp-5 {
+    0% {
+        transform: translateX(1812px) translateY(-500px) skew(-20deg);
+    }
+    100% {
+        transform: translateX(1812px) translateY(-124px) skew(-20deg);
+    }
 }
 
 .white-key-container {
@@ -60,49 +379,6 @@
     align-items: left;
     justify-content: left;
     gap: 2px;
-}
-
-.black-key-container {
-    display: flex;
-    align-items: left;
-    justify-content:left;
-    gap:22px;
-    transform: translateX(44px) translateY(-124px);
-}
-
-.black-key-container-3 {
-    display: flex;
-    align-items: left;
-    justify-content:left;
-    gap:22px;
-    transform: translateX(44px) translateY(-124px);
-}
-
-.black-key-container-3-2 {
-    position: absolute;
-    display: flex;
-    align-items: left;
-    justify-content:left;
-    gap:22px;
-    transform: translateX(438px) translateY(-124px);
-}
-
-.black-key-container-2 {
-    position: absolute;
-    display: flex;
-    align-items: left;
-    justify-content:left;
-    gap:22px;
-    transform: translateX(268px) translateY(-124px);
-}
-
-.black-key-container-2-2 {
-    position: absolute;
-    display: flex;
-    align-items: left;
-    justify-content:left;
-    gap:22px;
-    transform: translateX(662px) translateY(-124px);
 }
 
 @keyframes create-piano {
