@@ -37,7 +37,6 @@
 }
 
 .black-key {
-    position:relative;
     color:black;
     background-color:black;
     width:30px;
@@ -45,14 +44,121 @@
     border:2px solid black;
     border-radius: 2px;
 
-    z-index: -1;
+    z-index: 1;
 
-    animation-duration: 2s;
+    transform:skew(-20deg);
+
+    /*animation-duration: 2s;
     animation-name: create-key;
     animation-timing-function: ease;
     animation-iteration-count: 1;
     animation-direction:normal;
-    animation-fill-mode:forwards;
+    animation-fill-mode:forwards;*/
+}
+
+.a-sharp {
+    position: absolute;
+    transform: translateX(240px) translateY(-124px) skew(-20deg);
+}
+
+.c-sharp {
+    position: absolute;
+    transform: translateX(356px) translateY(-124px) skew(-20deg);
+}
+
+.d-sharp {
+    position: absolute;
+    transform: translateX(412px) translateY(-124px) skew(-20deg);
+}
+
+.f-sharp {
+    position: absolute;
+    transform: translateX(524px) translateY(-124px) skew(-20deg);
+}
+
+.g-sharp {
+    position: absolute;
+    transform: translateX(580px) translateY(-124px) skew(-20deg);
+}
+
+.a-sharp-2 {
+    position: absolute;
+    transform: translateX(636px) translateY(-124px) skew(-20deg);
+}
+
+.c-sharp-2 {
+    position: absolute;
+    transform: translateX(748px) translateY(-124px) skew(-20deg);
+}
+
+.d-sharp-2 {
+    position: absolute;
+    transform: translateX(804px) translateY(-124px) skew(-20deg);
+}
+
+.f-sharp-2 {
+    position: absolute;
+    transform: translateX(916px) translateY(-124px) skew(-20deg);
+}
+
+.g-sharp-2 {
+    position: absolute;
+    transform: translateX(972px) translateY(-124px) skew(-20deg);
+}
+
+.a-sharp-3 {
+    position: absolute;
+    transform: translateX(1028px) translateY(-124px) skew(-20deg);
+}
+
+.c-sharp-3 {
+    position: absolute;
+    transform: translateX(1140px) translateY(-124px) skew(-20deg);
+}
+
+.d-sharp-3 {
+    position: absolute;
+    transform: translateX(1196px) translateY(-124px) skew(-20deg);
+}
+
+.f-sharp-3 {
+    position: absolute;
+    transform: translateX(1308px) translateY(-124px) skew(-20deg);
+}
+
+.g-sharp-3 {
+    position: absolute;
+    transform: translateX(1364px) translateY(-124px) skew(-20deg);
+}
+
+.a-sharp-4 {
+    position: absolute;
+    transform: translateX(1420px) translateY(-124px) skew(-20deg);
+}
+
+.c-sharp-4 {
+    position: absolute;
+    transform: translateX(1532px) translateY(-124px) skew(-20deg);
+}
+
+.d-sharp-4 {
+    position: absolute;
+    transform: translateX(1588px) translateY(-124px) skew(-20deg);
+}
+
+.f-sharp-4 {
+    position: absolute;
+    transform: translateX(1700px) translateY(-124px) skew(-20deg);
+}
+
+.g-sharp-4 {
+    position: absolute;
+    transform: translateX(1756px) translateY(-124px) skew(-20deg);
+}
+
+.a-sharp-5 {
+    position: absolute;
+    transform: translateX(1812px) translateY(-124px) skew(-20deg);
 }
 
 .white-key-container {
