@@ -103,12 +103,15 @@ function keyboard(e){
             const coefficientInput = document.getElementById("Coefficient");
             const constantInput = document.getElementById("Constant");
             const modulusInput = document.getElementById("Modulus");
+            const deleteKeyInput = document.getElementById("RemoveKey");
             if(document.activeElement === keyInput || document.activeElement === valueInput){
                 this.insertPair();
             } else if(document.activeElement === initializeInput){
                 this.initializeMap();
             } else if(document.activeElement === coefficientInput || document.activeElement === constantInput || document.activeElement === modulusInput){
                 this.setHashFunction();
+            } else if(document.activeElement === deleteKeyInput){
+                this.deletePair();
             }
             break;
     }
