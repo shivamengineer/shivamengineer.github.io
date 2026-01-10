@@ -41,6 +41,9 @@ class Bucket {
 
     drawBucket(){
         ctx.strokeStyle = "white";
+        ctx.fillStyle = "white";
+        ctx.font = "20px Arial";
+        ctx.fillText("Bucket " + this.index, this.x + 10, this.y + 20);
         ctx.strokeRect(this.x, this.y, this.width, this.height);
         this.drawList();
     }
