@@ -5,15 +5,19 @@ class BucketHashMap {
         for(var i = 0; i < size; i++){
             this.buckets[i] = new Bucket(i, size);
         }
-        this.hash = null;
     }
 
-    setHashFunction(hashFunction){
-        this.hash = hashFunction;
+    setHashFunction(coefficient, constant, modulus){
+        this.coefficient = parseInt(coefficient);
+        this.constant = parseInt(constant);
+        this.modulus = parseInt(modulus);
     }
 
     hash(key){
-        return this.hash(key);
+        console.log("Hashing key: " + key);
+        var x = (this.coefficient * key) + this.constant;
+        console.log("before mod: " + x);
+        return x % this.modulus;
     }
 
     insert(key, value){
@@ -25,7 +29,7 @@ class BucketHashMap {
                 return;
             }
         }
-        bucket.push(new Element(key, value));
+        bucket.insert(key, value);
     }
 
     get(key){

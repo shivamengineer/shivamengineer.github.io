@@ -21,18 +21,17 @@ function initializeMap(){
 }
 
 function setHashFunction(){
-    const hashFunctionInput = document.getElementById("HashFunction").value;
-    if(hashFunctionInput != ""){
-        map.hash = function(key){
-            var hashValue = 0;
-            for(var i = 0; i < key.length; i++){
-                hashValue += key.charCodeAt(i);
-            }
-            return hashValue % this.size;
-        }
+    const coefficientInput = document.getElementById("Coefficient").value || 0;
+    const constantInput = document.getElementById("Constant").value || 0;
+    const modulusInput = document.getElementById("Modulus").value;
+    if(modulusInput != "" && modulusInput > 0){
+        map.setHashFunction(coefficientInput, constantInput, modulusInput);
     } else {
-        alert("Must enter valid hash function!");
+        alert("Must enter valid mod value to set hash function!");
     }
+    this.document.getElementById("Coefficient").value = "";
+    this.document.getElementById("Constant").value = "";
+    this.document.getElementById("Modulus").value = "";
 }
 
 function insertPair(){
@@ -101,10 +100,15 @@ function keyboard(e){
             const keyInput = document.getElementById("Key");
             const valueInput = document.getElementById("Value");
             const initializeInput = document.getElementById("Size");
+            const coefficientInput = document.getElementById("Coefficient");
+            const constantInput = document.getElementById("Constant");
+            const modulusInput = document.getElementById("Modulus");
             if(document.activeElement === keyInput || document.activeElement === valueInput){
                 this.insertPair();
             } else if(document.activeElement === initializeInput){
                 this.initializeMap();
+            } else if(document.activeElement === coefficientInput || document.activeElement === constantInput || document.activeElement === modulusInput){
+                this.setHashFunction();
             }
             break;
     }

@@ -15,7 +15,9 @@ class Bucket {
                 return;
             }
         }
-        this.elements.push(new Element(key, value));
+        var e = new Element(key, value);
+        e.setElementDrawingAttributes(this.x, this.y + 30 + ((this.elements.length + 1) * this.height), this.width, this.height);
+        this.elements.push(e);
     }
 
     get(key){
