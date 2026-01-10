@@ -3,7 +3,7 @@ class BucketHashMap {
         this.size = size;
         this.buckets = new Array(size);
         for(var i = 0; i < size; i++){
-            this.buckets[i] = new Array();
+            this.buckets[i] = new Bucket(i, size);
         }
         this.hash = null;
     }
@@ -53,10 +53,7 @@ class BucketHashMap {
 
     drawMap(){
         for(var i = 0; i < this.size; i++){
-            var bucket = this.buckets[i];
-            for(var j = 0; j < bucket.length; j++){
-                bucket[j].drawElement();
-            }
+            this.buckets[i].drawBucket();
         }
     }
 }
