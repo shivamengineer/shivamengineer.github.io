@@ -17,7 +17,7 @@ class Bucket {
         }
         var e = new Element(key, value);
         e.setElementDrawingAttributes(5, 5, this.width, this.height);
-        e.setTargetDrawingAttributes(this.x, this.y + 30 + ((this.elements.length + 1) * this.height), this.width, this.height);
+        e.setTargetDrawingAttributes(this.x, this.y + 30 + ((this.elements.length + 1) * this.height));
         e.moveXFirst = true;
         this.elements.push(e);
     }
@@ -36,6 +36,7 @@ class Bucket {
             if(this.elements[i].key === key){
                 var ret = this.elements[i];
                 this.elements.splice(i, 1);
+                this.updateElements();
                 return ret;
             }
         }
@@ -54,8 +55,14 @@ class Bucket {
         for(var i = 0; i < this.elements.length; i++){
             this.elements[i].drawElement();
             if(this.elements[i].moving){
-                this.elements[i].updateDrawingAttributes(this.elements[i + 1]);
+                this.elements[i].updateDrawingAttributes();
             }
+        }
+    }
+
+    updateElements(){
+        for(var i = 0; i < this.elements.length; i++){
+            this.elements[i].setTargetDrawingAttributes(this.x, this.y + 30 + ((i + 1) * this.height));
         }
     }
 }

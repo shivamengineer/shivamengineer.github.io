@@ -40,10 +40,7 @@ class Element {
         }
     }
 
-    updateDrawingAttributes(otherElement){
-        if(otherElement != null && this.collides(otherElement)){
-            return;
-        }
+    updateDrawingAttributes(){
         if(this.moveXFirst){
             this.updateDrawingAttributesXFirst();
         } else if(this.moveYFirst){

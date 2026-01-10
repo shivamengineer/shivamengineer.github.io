@@ -14,9 +14,7 @@ class BucketHashMap {
     }
 
     hash(key){
-        console.log("Hashing key: " + key);
         var x = (this.coefficient * key) + this.constant;
-        console.log("before mod: " + x);
         return x % this.modulus;
     }
 
@@ -45,14 +43,7 @@ class BucketHashMap {
 
     delete(key){
         var hashValue = this.hash(key);
-        var bucket = this.buckets[hashValue];
-        for(var i = 0; i < bucket.length; i++){
-            if(bucket[i].key === key){
-                var ret = bucket[i];
-                bucket.splice(i, 1);
-                return ret;
-            }
-        }
+        return this.buckets[hashValue].delete(key);
     }
 
     drawMap(){
