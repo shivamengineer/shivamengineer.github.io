@@ -25,6 +25,7 @@
             <li><a href="#heap">Heap</a></li>
             <li><a href="#stack">Stack</a></li>
             <li><a href="#queue">Queue</a></li>
+            <li><a href="#bucket-hash-map">Map With Bucket Hashing</a></li>
         </ul>
         <a href="DataStructures/Trees/BinarySearchTree/bst.html">
             <h2 class="wp-block-heading" id="binary-search-tree">Binary Search Tree</h2>
@@ -43,5 +44,9 @@
             <h2 class="wp-block-heading" id="queue">Queue</h2>
         </a>
         <p class="horizontal-margin" style="line-height: 1.5">Queues are pretty similar in complexity to stacks, though they generally have different applications. The simple way to remember how queues work is "first in first out", meaning that you add to one end of the queue, and remove from the other end of the queue. So they can be useful if you want to repeat some string of characters</p>
+        <a href="DataStructures/Maps/BucketHashMap/bucketmap.html">
+            <h2 class="wp-block-heading" id="bucket-hash-map">Map With Bucket Hashing</h2>
+        </a>
+        <p class="horizontal-margin" style="line-height: 1.5">Hash maps are one of the most useful data structures that you can use, as they have constant time operations for insert, delete, and get. You can't use them in every context, though because of their incredibly fast running time, you probably should use them whenever possible. There are different kinds of hash maps, the main ones that you'll look at use either bucket hashing or chained hashing. This one here uses bucket hashing, where it stores elements in buckets based on the hash function. Each of the buckets contains a list or some other data structure to hold elements. The one that I made essentially uses a linked list. One of the challenges that come with hash maps is having a good hash function. Many times, the hashing is done for you, so you don't have to worry about it, but if you're creating your own, you'll have to deal with this issue. The goal with your hash function is to have elements evenly be distributed across the buckets, though you also want the hash function to take constant time.</p>
     </body>
 </html>

@@ -11,6 +11,10 @@ class BucketHashMap {
         this.coefficient = parseInt(coefficient);
         this.constant = parseInt(constant);
         this.modulus = parseInt(modulus);
+        this.buckets = new Array(this.size);
+        for(var i = 0; i < this.size; i++){
+            this.buckets[i] = new Bucket(i, this.size);
+        }
     }
 
     hash(key){
