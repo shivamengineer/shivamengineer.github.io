@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../../CSS/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <a href="../../../index.html">
+                <div class="rectangle-header-button">Home</div>
+            </a>
+            <a href="../../../dsmain.html">
+                <div class="rectangle-header-button">Data Structures</div>
+            </a>
+            <a href="../../../aboutme.html">
+                <div class="rectangle-header-button">About Me</div>
+            </a>
+        </div>
+        <div class="container">
+            <h2>
+            <label for="Initialize" name="Initialize" min="1">Initialize(# of buckets)</label>
+            <input type="number" id="Size"></input>
+            <button onClick="initializeMap()">Initialize</button>
+            <label for="HashFunction" name="HashFunction">Hash Function:</label>
+            <input type="text" id="HashFunction"></input>
+            <button onclick="setHashFunction()">Set</button>
+            <br><br>
+            <label for="Insert" name="Insert" min="0">Key, Value:</label>
+            <input type="number" id="Key"></input>
+            <input type="number" id="Value"></input>
+            <button onclick="insertPair()">Insert</button>
+            <t></t>
+            <label for="Remove" name="Remove" min="0">Remove( )</label>
+            <input type="number" id="RemoveKey"></input>
+            <button onClick="deletePair()">Delete</button>
+            </h2>    
+        </div>
+        <canvas></canvas>
+        <h2>Map With Bucket Hashing</h2>
+        <script src="Element.js"></script>
+        <script src="BucketHashMap.js"></script>
+        <script src="bucketmapmain.js"></script>
+    </body>
+</html>
