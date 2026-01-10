@@ -16,7 +16,9 @@ class Bucket {
             }
         }
         var e = new Element(key, value);
-        e.setElementDrawingAttributes(this.x, this.y + 30 + ((this.elements.length + 1) * this.height), this.width, this.height);
+        e.setElementDrawingAttributes(5, 5, this.width, this.height);
+        e.setTargetDrawingAttributes(this.x, this.y + 30 + ((this.elements.length + 1) * this.height), this.width, this.height);
+        e.moveXFirst = true;
         this.elements.push(e);
     }
 
@@ -51,6 +53,9 @@ class Bucket {
     drawList(){
         for(var i = 0; i < this.elements.length; i++){
             this.elements[i].drawElement();
+            if(this.elements[i].moving){
+                this.elements[i].updateDrawingAttributes(this.elements[i + 1]);
+            }
         }
     }
 }
