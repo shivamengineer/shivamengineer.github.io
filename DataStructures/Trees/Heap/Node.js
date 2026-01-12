@@ -3,6 +3,8 @@ class Node {
         this.value = value;
         this.id = id;
         this.moving = false;
+        this.targetX = [];
+        this.targetY = [];
     }
 
     setNodeDrawingAttributes(x, y, radius){
@@ -15,8 +17,8 @@ class Node {
     setTargetDrawingAttributes(x, y){
         this.startX = x;
         this.startY = y;
-        this.targetX = x;
-        this.targetY = y;
+        this.targetX.push(x);
+        this.targetY.push(y);
         this.moving = true;
         this.movingX = true;
         this.movingY = true;
@@ -29,20 +31,27 @@ class Node {
     updateDrawingAttributes(){
         this.moveX();
         this.moveY();
-        if( !this.movingX && !this.movingY ){ 
-            this.moving = false;
-            this.inserting = false;
-            this.siftingUp = false;
-            this.siftingDown = false;
-            this.deleting = false;
-            this.swapping = false;
+        if(!this.movingX && !this.movingY){ 
+            this.targetX.shift();
+            this.targetY.shift();
+            if(this.targetX.length == 0 && this.targetY.length == 0){
+                this.moving = false;
+                this.inserting = false;
+                this.siftingUp = false;
+                this.siftingDown = false;
+                this.deleting = false;
+                this.swapping = false;
+            } else {
+                this.movingX = true;
+                this.movingY = true;
+            }
         }
     }
 
     moveX(){
-        if(this.x < this.targetX - 4){
+        if(this.x < this.targetX[0] - 4){
             this.x += 5;
-        } else if(this.x > this.targetX + 4){
+        } else if(this.x > this.targetX[0] + 4){
             this.x -= 5;
         } else {
             this.movingX = false;
@@ -50,9 +59,9 @@ class Node {
     }
 
     moveY(){
-        if(this.y < this.targetY - 4){
+        if(this.y < this.targetY[0] - 4){
             this.y += 5;
-        } else if(this.y > this.targetY + 4){
+        } else if(this.y > this.targetY[0] + 4){
             this.y -= 5;
         } else {
             this.movingY = false;

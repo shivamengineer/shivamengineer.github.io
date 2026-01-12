@@ -37,6 +37,7 @@ class Heap {
     }
 
     extractMax(){
+        this.arr[this.arr.length - 1].setTargetDrawingAttributes(this.getX(this.arr[0]), this.getY(this.arr[0]));
         this.swapNodes(0, this.arr.length - 1);
         this.arr[this.arr.length - 1].deleting = true;
         var max = this.arr.pop();
@@ -58,11 +59,17 @@ class Heap {
     trySwapDown(id){
         if(this.arr[this.arr.length - 1].id >= (2 * id) + 1 && this.arr[id - 1].value < this.arr[(2 * id)].value){
             if(this.arr[(2 * id)].value < this.arr[(2 * id) - 1].value){
+                this.arr[2 * id - 1].setTargetDrawingAttributes(this.getX(this.arr[id - 1]), this.getY(this.arr[id - 1]));
+                this.arr[id - 1].setTargetDrawingAttributes(this.getX(this.arr[2 * id - 1]), this.getY(this.arr[2 * id - 1]));
                 this.swapNodes(id - 1, 2 * id - 1);
             } else {
+                this.arr[2 * id].setTargetDrawingAttributes(this.getX(this.arr[id - 1]), this.getY(this.arr[id - 1]));
+                this.arr[id - 1].setTargetDrawingAttributes(this.getX(this.arr[2 * id]), this.getY(this.arr[2 * id]));
                 this.swapNodes(id - 1, 2 * id);
             }
         } else if(this.arr[this.arr.length - 1].id >= 2 * id && this.arr[id - 1].value < this.arr[(2 * id) - 1].value){
+            this.arr[2 * id - 1].setTargetDrawingAttributes(this.getX(this.arr[id - 1]), this.getY(this.arr[id - 1]));
+            this.arr[id - 1].setTargetDrawingAttributes(this.getX(this.arr[2 * id - 1]), this.getY(this.arr[2 * id - 1]));
             this.swapNodes(id - 1, (2 * id) - 1);
         } else {
             return false;
@@ -75,6 +82,8 @@ class Heap {
 
         var parentIndex = Math.floor(id / 2) - 1;
         if(this.arr[parentIndex].value < this.arr[id - 1].value){
+            this.arr[parentIndex].setTargetDrawingAttributes(this.getX(this.arr[id - 1]), this.getY(this.arr[id - 1]));
+            this.arr[id - 1].setTargetDrawingAttributes(this.getX(this.arr[parentIndex]), this.getY(this.arr[parentIndex]));
             this.swapNodes(parentIndex, id - 1);
             return true;
         }
