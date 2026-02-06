@@ -44,7 +44,7 @@ class Heap {
         this.siftDown();
         this.updateHeight();
         this.updateNodePositions();
-        return max;
+        return max; 
     }
 
     //former parent is node1
