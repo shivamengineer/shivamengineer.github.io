@@ -51,6 +51,17 @@ a:visited {
     transition-delay: 5ms;
 }
 
+.rectangle-button {
+    width: 33%;
+    height: 60px;
+    background-color:cornflowerblue;
+    border: 2px solid black;
+    color: medium;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .rectangle-header-button:hover {
     background-color:deeppink;
 }
