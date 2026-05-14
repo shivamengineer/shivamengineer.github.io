@@ -1,8 +1,30 @@
-.container {
+.menu-checkbox {
+    display: none;
+}
+
+.hamburger {
+    cursor: pointer;
     display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+  width: 30px;
+  height: 4px;
+  background-color: #333;
+  transition: 0.3s;
+}
+
+.container {
+    display: none;
     align-items: left;
     justify-content: space-between;
     font-size: 18px;
+}
+
+.menu-checkbox:checked ~ .container {
+    display: flex;
 }
 
 .container a {
@@ -45,7 +67,6 @@ a:visited {
     justify-content: center;
     align-items: center;
 
-    transform: skew(-15deg);
     transition-property: background-color;
     transition-duration: 1s;
     transition-delay: 5ms;
