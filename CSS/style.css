@@ -17,13 +17,20 @@
 }
 
 .container {
+    display: flex;
+    align-items: left;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.container-2 {
     display: none;
     align-items: left;
     justify-content: space-between;
     font-size: 18px;
 }
 
-.menu-checkbox:checked ~ .container {
+.menu-checkbox:checked ~ .container-2 {
     display: flex;
 }
 
