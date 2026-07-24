@@ -1,21 +1,20 @@
 .panel {
     position: relative;
     width: 100%;
-    align-items: flex;
 }
 
 .panel img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 40%;
+    opacity: 60%;
 }
 
 .overlay {
     position: absolute;
     top: 0;
     right: 0;
-    background-color:slategrey;
+    background-color:darksalmon;
     color:black;
     width: 33%;
     height: 100%;
@@ -26,18 +25,50 @@
     justify-content: center;
 }
 
-.overlay:hover {
-    background-color:lightslategrey;
+.overlay-2 {
+    position: absolute;
+    top: 0;
+    background-color: coral;
+    color: black;
+    width: 33%;
+    height: 100%;
+
+    display:ruby-base-container;
+    justify-content: center;
 }
 
-.spinny-header {
+
+.overlay-header {
     color: blue;
     margin-top: 12%;
     margin-left: 30%;
 }
 
-.spinny-body {
+.overlay-body {
     color:white;
     margin-top: 0%;
     margin-left: 10%;
+    width: 150%;
+    text-indent: 2em each-line;
+    font-size: 18px;
+}
+
+.list-projects {
+    border: 4px solid black;
+    width: 75%;
+}
+
+.list-item {
+    border: 2px solid blue;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    width: 75%;
+    justify-self: center;
+    justify-items: center;
+    display:flexbox;
+}
+
+.list-textbox {
+    width: 185%;
+    margin-left: 85%;
 }
